@@ -633,10 +633,15 @@ Full list of fixes and enhancements
     :header-rows: 1
 
     * - ID
-      - Type
+     - Type
       - Priority
       - Summary
       - Added
+    * - `#3296`_
+      - enhancement
+      - critical
+      - Support keywords and control structures with listener version 3
+      - beta 1
     * - `#3761`_
       - enhancement
       - critical
@@ -657,6 +662,11 @@ Full list of fixes and enhancements
       - high
       - Performance regression when using `Run Keyword` and keyword name contains a variable
       - alpha 1
+    * - `#4965`_
+      - bug
+      - high
+      - RF 7.0a2 fails to import keywords having parameters with Literal type
+      - beta 1
     * - `#4258`_
       - enhancement
       - high
@@ -667,6 +677,11 @@ Full list of fixes and enhancements
       - high
       - Support removing tags set globally by using `-tag` syntax with `[Tags]` setting
       - alpha 1
+    * - `#4633`_
+      - enhancement
+      - high
+      - Automatic argument conversion and validation for `Literal`
+      - beta 1
     * - `#4711`_
       - enhancement
       - high
@@ -727,6 +742,11 @@ Full list of fixes and enhancements
       - medium
       - `TypedDict` with forward references do not work in argument conversion
       - alpha 2
+    * - `#4956`_
+      - bug
+      - medium
+      - DotDict behaves inconsistent on equality checks. `x == y` != `not x != y` and not `x != y` == `not x == y`
+      - beta 1
     * - `#3017`_
       - enhancement
       - medium
@@ -745,7 +765,7 @@ Full list of fixes and enhancements
     * - `#4343`_
       - enhancement
       - medium
-      - Collections. Support case-insensitive comparisons
+      - Collections: Support case-insensitive list and dictionary comparisons
       - alpha 2
     * - `#4375`_
       - enhancement
@@ -827,6 +847,11 @@ Full list of fixes and enhancements
       - medium
       - Loudly deprecate `[Return]` setting
       - alpha 1
+    * - `#4877`_
+      - enhancement
+      - medium
+      - Support ignoring element order with `Elements Should Be Equal`
+      - beta 1
     * - `#4883`_
       - enhancement
       - medium
@@ -852,6 +877,11 @@ Full list of fixes and enhancements
       - medium
       - Support creating variable name based on another variable like `${${VAR}}` in Variables section
       - alpha 1
+    * - `#4910`_
+      - enhancement
+      - medium
+      - Make listener v3 the default listener API
+      - beta 1
     * - `#4912`_
       - enhancement
       - medium
@@ -872,11 +902,26 @@ Full list of fixes and enhancements
       - medium
       - Collections: Make `ignore_order` and `ignore_keys` recursive
       - alpha 2
+    * - `#4960`_
+      - enhancement
+      - medium
+      - Support integer conversion with strings representing whole number floats like `'1.0'` and `'2e10'`
+      - beta 1
+    * - `#4976`_
+      - enhancement
+      - medium
+      - Support string `SELF` (case-insenstive) when library registers itself as listener
+      - beta 1
     * - `#4934`_
       - ---
       - medium
       - Enhance performance of visiting parsing model
       - alpha 1
+    * - `#4798`_
+      - bug
+      - low
+      - `--removekeywords passed` doesn't remove test setup and teardown
+      - beta 1
     * - `#4867`_
       - bug
       - low
@@ -902,6 +947,11 @@ Full list of fixes and enhancements
       - low
       - WARN level missing from the log level selector in log.html
       - alpha 1
+    * - `#4967`_
+      - bug
+      - low
+      - Variables are not resolved in keyword name in WUKS error message
+      - beta 1
     * - `#4861`_
       - enhancement
       - low
@@ -942,25 +992,38 @@ Full list of fixes and enhancements
       - low
       - Use `casefold`, not `lower`, when comparing strings case-insensitively
       - alpha 1
+    * - `#4936`_
+      - enhancement
+      - low
+      - Remove bytes support from `robot.utils.normalize` function
+      - alpha 1
     * - `#4954`_
       - enhancement
       - low
       - Collections and String: Add `ignore_case` as alias for `case_insensitive`
       - alpha 2
-    * - `#4936`_
+    * - `#4958`_
       - enhancement
-      - ---
-      - Remove bytes support from `normalize` unitility
-      - alpha 1
+      - low
+      - Document `robot_running` and `dry_run_active` properties of the BuiltIn library in the User Guide
+      - beta 1
+    * - `#4975`_
+      - enhancement
+      - low
+      - Support `times` and `x` suffixes with `WHILE` limit to make it more compatible with `Wait Until Keyword Succeeds`
+      - beta 1
 
-Altogether 63 issues. View on the `issue tracker <https://github.com/robotframework/robotframework/issues?q=milestone%3Av7.0>`__.
+Altogether 75 issues. View on the `issue tracker <https://github.com/robotframework/robotframework/issues?q=milestone%3Av7.0>`__.
 
+.. _#3296: https://github.com/robotframework/robotframework/issues/3296
 .. _#3761: https://github.com/robotframework/robotframework/issues/3761
 .. _#4294: https://github.com/robotframework/robotframework/issues/4294
 .. _#4710: https://github.com/robotframework/robotframework/issues/4710
 .. _#4659: https://github.com/robotframework/robotframework/issues/4659
+.. _#4965: https://github.com/robotframework/robotframework/issues/4965
 .. _#4258: https://github.com/robotframework/robotframework/issues/4258
 .. _#4374: https://github.com/robotframework/robotframework/issues/4374
+.. _#4633: https://github.com/robotframework/robotframework/issues/4633
 .. _#4711: https://github.com/robotframework/robotframework/issues/4711
 .. _#4803: https://github.com/robotframework/robotframework/issues/4803
 .. _#4808: https://github.com/robotframework/robotframework/issues/4808
@@ -973,6 +1036,7 @@ Altogether 63 issues. View on the `issue tracker <https://github.com/robotframew
 .. _#4924: https://github.com/robotframework/robotframework/issues/4924
 .. _#4926: https://github.com/robotframework/robotframework/issues/4926
 .. _#4945: https://github.com/robotframework/robotframework/issues/4945
+.. _#4956: https://github.com/robotframework/robotframework/issues/4956
 .. _#3017: https://github.com/robotframework/robotframework/issues/3017
 .. _#4103: https://github.com/robotframework/robotframework/issues/4103
 .. _#4302: https://github.com/robotframework/robotframework/issues/4302
@@ -993,21 +1057,27 @@ Altogether 63 issues. View on the `issue tracker <https://github.com/robotframew
 .. _#4841: https://github.com/robotframework/robotframework/issues/4841
 .. _#4846: https://github.com/robotframework/robotframework/issues/4846
 .. _#4876: https://github.com/robotframework/robotframework/issues/4876
+.. _#4877: https://github.com/robotframework/robotframework/issues/4877
 .. _#4883: https://github.com/robotframework/robotframework/issues/4883
 .. _#4884: https://github.com/robotframework/robotframework/issues/4884
 .. _#4896: https://github.com/robotframework/robotframework/issues/4896
 .. _#4903: https://github.com/robotframework/robotframework/issues/4903
 .. _#4905: https://github.com/robotframework/robotframework/issues/4905
+.. _#4910: https://github.com/robotframework/robotframework/issues/4910
 .. _#4912: https://github.com/robotframework/robotframework/issues/4912
 .. _#4939: https://github.com/robotframework/robotframework/issues/4939
 .. _#4942: https://github.com/robotframework/robotframework/issues/4942
 .. _#4952: https://github.com/robotframework/robotframework/issues/4952
+.. _#4960: https://github.com/robotframework/robotframework/issues/4960
+.. _#4976: https://github.com/robotframework/robotframework/issues/4976
 .. _#4934: https://github.com/robotframework/robotframework/issues/4934
+.. _#4798: https://github.com/robotframework/robotframework/issues/4798
 .. _#4867: https://github.com/robotframework/robotframework/issues/4867
 .. _#4870: https://github.com/robotframework/robotframework/issues/4870
 .. _#4904: https://github.com/robotframework/robotframework/issues/4904
 .. _#4913: https://github.com/robotframework/robotframework/issues/4913
 .. _#4927: https://github.com/robotframework/robotframework/issues/4927
+.. _#4967: https://github.com/robotframework/robotframework/issues/4967
 .. _#4861: https://github.com/robotframework/robotframework/issues/4861
 .. _#4862: https://github.com/robotframework/robotframework/issues/4862
 .. _#4864: https://github.com/robotframework/robotframework/issues/4864
@@ -1016,5 +1086,7 @@ Altogether 63 issues. View on the `issue tracker <https://github.com/robotframew
 .. _#4922: https://github.com/robotframework/robotframework/issues/4922
 .. _#4933: https://github.com/robotframework/robotframework/issues/4933
 .. _#4935: https://github.com/robotframework/robotframework/issues/4935
-.. _#4954: https://github.com/robotframework/robotframework/issues/4954
 .. _#4936: https://github.com/robotframework/robotframework/issues/4936
+.. _#4954: https://github.com/robotframework/robotframework/issues/4954
+.. _#4958: https://github.com/robotframework/robotframework/issues/4958
+.. _#4975: https://github.com/robotframework/robotframework/issues/4975
