@@ -122,6 +122,15 @@ state and also modify it. With user keywords it is even possible to modify
 the keyword itself or, via the `owner` resource file, any other keyword in
 the resource file.
 
+Listeners can also modify results if needed. Possible use cases include hiding
+sensitive information and adding more details to results based on some
+external sources.
+
+Notice that although listener can change status of any executed keyword or control
+structure, that does not directly affect the status of executed tests. In general
+listeners cannot directly fail keywords so that execution would stop or handle
+failures so that execution would continue. This kind of functionality may be
+added in the future if there are needs.
 Listener version 3 is the default listener version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
