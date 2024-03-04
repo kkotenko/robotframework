@@ -158,6 +158,29 @@ The above keyword could be used like this:
         Number of dogs should be    3
 
 __ https://github.com/robotframework/robotframework/issues/4234
+Support  "stringified" types like `'list[int]'` and `'int | float'`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Python's type hinting syntax has evolved so that generic types can be parameterized
+like `list[int]` (new in `Python 3.9`__) and unions written as `int | float`
+(new in `Python 3.10`__). Using these constructs with older Python versions causes
+errors, but Python type checkers support also "stringified" type hints like
+`'list[int]'` and `'int | float'` that work regardless the Python version.
+
+Support for stringified generics and unions has now been added also to
+Robot Framework's argument conversion (`#4711`_). For example,
+the following typing now also works with Python 3.8:
+
+.. sourcecode:: python
+
+    def example(a: 'list[int]', b: 'int | float'):
+        ...
+
+These stringified types are also compatible with the Remote library API and other
+scenarios where using actual types is not feasible.
+
+__ https://peps.python.org/pep-0585/
+__ https://peps.python.org/pep-0604/
 
 Tags set globally can be removed using `-tag` syntax
 ----------------------------------------------------
@@ -200,30 +223,6 @@ Async support was added to the normal static library API in Robot Framework
 is stopped gracefully has also been fixed (`#4808`_).
 
 .. _#4089: https://github.com/robotframework/robotframework/issues/4089
-
-Support  "stringified" types like `'list[int]'` and `'int | float'`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Python's type hinting syntax has evolved so that generic types can be parameterized
-like `list[int]` (new in `Python 3.9`__) and unions written as `int | float`
-(new in `Python 3.10`__). Using these constructs with older Python versions causes
-errors, but Python type checkers support also "stringified" type hints like
-`'list[int]'` and `'int | float'` that work regardless the Python version.
-
-Support for stringified generics and unions has now been added also to
-Robot Framework's argument conversion (`#4711`_). For example,
-the following typing now also works with Python 3.8:
-
-.. sourcecode:: python
-
-    def example(a: 'list[int]', b: 'int | float'):
-        ...
-
-These stringified types are also compatible with the Remote library API and other
-scenarios where using actual types is not feasible.
-
-__ https://peps.python.org/pep-0585/
-__ https://peps.python.org/pep-0604/
 
 Timestamps in result model and output.xml use standard format
 -------------------------------------------------------------
