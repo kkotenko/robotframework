@@ -70,6 +70,45 @@ Framework users, but they are likely to use tools that are based on it.
 The listener API has been significantly enhanced making it possible
 to create even more powerful and interesting tools in the future.
 
+Listener version 3 is the default listener version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Earlier listeners needed to specify the API version they used with the
+`ROBOT_LISTENER_API_VERSION` attribute. Now that the listener version 3 got
+the new methods, it is considered so much more powerful than the version 2
+that it was made the default listener version (`#4910`_).
+
+The listener version 2 continues to work, but using it requires specifying
+the listener version as earlier. The are no plans to deprecate the listener
+version 2, but we nevertheless highly recommend using the version 3 whenever
+possible.
+
+Libraries can register themselves as listeners by using string `SELF`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Listeners are typically enabled  from the command line, but libraries
+can register listeners as well. Often libraries themselves want to act
+as listeners, and that has earlier required using `ROBOT_LIBRARY_LISTENER = self`
+in the `__init__` method. Robot Framework 7.0 makes it possible to use string
+`SELF` (case-insensitive) for this purpose as well (`#4910`_), which means
+that a listener can be specified as a class attribute and not only in `__init__`.
+This is especially convenient when using the `@library` decorator:
+
+.. sourcecode:: python
+
+    from robot.api.deco import keyword, library
+
+
+    @library(listener='SELF')
+    class Example:
+
+        def start_suite(self, data, result):
+            ...
+
+        @keyword
+        def example(self, arg):
+            ...
+
 Native `VAR` syntax
 -------------------
 
