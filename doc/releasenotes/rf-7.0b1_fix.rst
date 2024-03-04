@@ -98,6 +98,29 @@ about started keywords and ended WHILE loops:
 
 
 With keywords it is possible to also get more information about the actually
+executed keyword. For example, the following listener prints some information
+about the executed keyword and the library it belongs to:
+
+.. sourcecode:: python
+
+    from robot.running import Keyword as KeywordData, LibraryKeyword
+    from robot.result import Keyword as KeywordResult
+
+
+    def start_library_keyword(data: KeywordData,
+                              implementation: LibraryKeyword,
+                              result: KeywordResult):
+        library = implementation.owner
+        print(f"Keyword '{implementation.name}' is implemented in library "
+              f"'{library.name}' at '{implementation.source}' on line "
+              f"{implementation.lineno}. The library has {library.scope.name} "
+              f"scope and the current instance is {library.instance}.")
+
+As the above example already illustrated, it is possible to get an access to
+the actual library instance. This means that listeners can inspect the library
+state and also modify it. With user keywords it is even possible to modify
+the keyword itself or, via the `owner` resource file, any other keyword in
+the resource file.
 
 Listener version 3 is the default listener version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
