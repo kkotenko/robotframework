@@ -201,8 +201,8 @@ is stopped gracefully has also been fixed (`#4808`_).
 
 .. _#4089: https://github.com/robotframework/robotframework/issues/4089
 
-Support `'list[int]'` and `'int | float'` in argument conversion
-----------------------------------------------------------------
+Support  "stringified" types like `'list[int]'` and `'int | float'`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Python's type hinting syntax has evolved so that generic types can be parameterized
 like `list[int]` (new in `Python 3.9`__) and unions written as `int | float`
