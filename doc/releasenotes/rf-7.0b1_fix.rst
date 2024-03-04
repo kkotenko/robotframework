@@ -60,6 +60,16 @@ approaches, see the `installation instructions`_.
 Most important enhancements
 ===========================
 
+Listener enhancements
+---------------------
+
+Robot Framework's listener interface is a very powerful mechanism to get
+notifications about various events during execution and it also allows modifying
+data and results on the fly. It is not typically directly used by normal Robot
+Framework users, but they are likely to use tools that are based on it.
+The listener API has been significantly enhanced making it possible
+to create even more powerful and interesting tools in the future.
+
 Native `VAR` syntax
 -------------------
 
