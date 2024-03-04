@@ -16,6 +16,8 @@ for anyone interested to see how they can use the `interesting new features`__ a
 tasks, tools and libraries. If needed, we can still make adjustments or even revert
 problematic changes before the final release.
 
+__ `Most important enhancements`_
+
 Questions and comments related to the release can be sent to the `#devel`
 channel on `Robot Framework Slack`_ and possible bugs submitted to
 the `issue tracker`_. All issues targeted for Robot Framework 7.0 can be found
