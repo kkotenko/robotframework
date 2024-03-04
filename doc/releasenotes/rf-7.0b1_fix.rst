@@ -70,6 +70,35 @@ Framework users, but they are likely to use tools that are based on it.
 The listener API has been significantly enhanced making it possible
 to create even more powerful and interesting tools in the future.
 
+Support keywords and control structures with listener version 3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The major limitation with the listener API has been been that the listener
+API version 2 only supports getting notifications and that the more powerful
+listener API version 3 has only supported suites and tests/tasks.
+
+The biggest enhancement in the whole Robot Framework 7.0 is that the listener
+version 3 has been extended to support also keywords and control structures (`#3296`_).
+For example, a listener having the following methods would print information
+about started keywords and ended WHILE loops:
+
+.. sourcecode:: python
+
+    from robot.running import Keyword as KeywordData, While as WhileData
+    from robot.result import Keyword as KeywordResult, While as WhileResult
+
+
+    def start_keyword(data: KeywordData, result: KeywordResult):
+        print(f"Keyword '{result.full_name}' used on line {data.lineno} started.")
+
+
+    def end_while(data: WhileData, result: WhileResult):
+        print(f"WHILE loop on line {data.lineno} ended with status {result.status} "
+              f"after {len(result.body)} iterations.")
+
+
+With keywords it is possible to also get more information about the actually
+
 Listener version 3 is the default listener version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
