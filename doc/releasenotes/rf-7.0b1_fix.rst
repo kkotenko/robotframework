@@ -158,6 +158,47 @@ The above keyword could be used like this:
         Number of dogs should be    3
 
 __ https://github.com/robotframework/robotframework/issues/4234
+
+Argument conversion enhancements
+--------------------------------
+
+Automatic argument conversion is a very powerful feature that library developers
+can use to avoid converting arguments manually and to get more useful Libdoc
+documentation. There are two important new enhancements to it.
+
+Support for `Literal`
+~~~~~~~~~~~~~~~~~~~~~
+
+In Python, the Literal__ type makes it possible to type arguments so that type
+checkers accept only certain values. For example, a function like below
+only accepts strings `x`, `y` and `z`.
+
+.. sourcecode:: python
+
+   def example(arg: Literal['x', 'y', 'z']):
+       ...
+
+Robot Framework has been enhanced so that it validates that an argument having
+a `Literal` type can only be used with the specified values (`#4633`_). For
+example, using a keyword with the above implementation with a value `xxx` would
+fail.
+
+In addition to validation, arguments are also converted. For example, if an
+argument accepts `Literal[-1, 0, 1]`, used arguments are converted to
+integers and then validated. In addition to that, string matching is case, space,
+underscore and hyphen insensitive. In all cases exact matches have a precedence
+and the argument that is passed to the keyword is guaranteed to be in the exact
+format used with `Literal`.
+
+`Literal` conversion is in many ways similar to Enum__ conversion that Robot
+Framework has supported for long time. `Enum` conversion has benefits like
+being able to use a custom documentation and it is typically better when using
+the same type multiple times. In simple cases being able to just use
+`arg: Literal[...]` without defining a new type is very convenient, though.
+
+__ https://docs.python.org/3/library/typing.html#typing.Literal
+__ https://docs.python.org/3/library/enum.html
+
 Support  "stringified" types like `'list[int]'` and `'int | float'`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
