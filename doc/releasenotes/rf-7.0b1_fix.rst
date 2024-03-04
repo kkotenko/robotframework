@@ -131,6 +131,14 @@ structure, that does not directly affect the status of executed tests. In genera
 listeners cannot directly fail keywords so that execution would stop or handle
 failures so that execution would continue. This kind of functionality may be
 added in the future if there are needs.
+
+The new listener v3 methods are so powerful and versatile that going them through
+thoroughly in these release notes is not possible. For more examples, you
+can see the `acceptance tests`__ using the methods in various interesting and even
+crazy ways.
+
+__ https://github.com/robotframework/robotframework/tree/master/atest/testdata/output/listener_interface/body_items_v3
+
 Listener version 3 is the default listener version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
