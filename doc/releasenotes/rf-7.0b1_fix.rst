@@ -4,22 +4,17 @@ Robot Framework 7.0 beta 1
 
 .. default-role:: code
 
+`Robot Framework`_ 7.0 is a new major release with enhanced listener interface
+(`#3296`_), native `VAR` syntax for creating variables (`#3761`_), support for
+mixing embedded and normal arguments with library keywords (`#4710`_) and various
+other enhancements and bug fixes. Robot Framework 7.0 requires Python 3.8 or
+newer (`#4294`_).
 
-`Robot Framework`_ 7.0 is a new major release with native `VAR` syntax for creating
-variables (`#3761`_), support for mixing embedded and normal arguments with library
-keywords (`#4710`_) and various other enhancements and bug fixes. Robot Framework 7.0
-requires Python 3.8 or newer (`#4294`_).
-
-Robot Framework 7.0 alpha 2 was released on Wednesday November 22, 2023.
-It is especially targeted for external tool developers for testing how
-`backwards incompatible changes`_ and deprecations_ possibly affect their tools.
-We can still make adjustments or even revert problematic changes before
-the final release.
-
-We also hope to get feedback from the general user base related to the `VAR`
-syntax (`#3761`_) and other new features. Making changes to them is much easier
-now than after the final release when we need to take backwards compatibility
-into account.
+Robot Framework 7.0 beta 1 was released on Friday December 15, 2023. It is targeted
+for anyone interested to see how they can use the `interesting new features`__ and how
+`backwards incompatible changes`_ and deprecations_ possibly affect their tests,
+tasks, tools and libraries. If needed, we can still make adjustments or even revert
+problematic changes before the final release.
 
 Questions and comments related to the release can be sent to the `#devel`
 channel on `Robot Framework Slack`_ and possible bugs submitted to
